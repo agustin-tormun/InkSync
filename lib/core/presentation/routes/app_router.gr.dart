@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    SiginInRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SiginInScreen(),
+      );
+    },
     AuthorizationRoute.name: (routeData) {
       final args = routeData.argsAs<AuthorizationRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -24,12 +30,6 @@ abstract class _$AppRouter extends RootStackRouter {
           onAuthorizationCodeRedirectAttempt:
               args.onAuthorizationCodeRedirectAttempt,
         ),
-      );
-    },
-    SiginInRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const SiginInScreen(),
       );
     },
     HomeRoute.name: (routeData) {
@@ -45,6 +45,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [SiginInScreen]
+class SiginInRoute extends PageRouteInfo<void> {
+  const SiginInRoute({List<PageRouteInfo>? children})
+      : super(
+          SiginInRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SiginInRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -84,20 +98,6 @@ class AuthorizationRouteArgs {
   String toString() {
     return 'AuthorizationRouteArgs{authorizationUrl: $authorizationUrl, onAuthorizationCodeRedirectAttempt: $onAuthorizationCodeRedirectAttempt}';
   }
-}
-
-/// generated route for
-/// [SiginInScreen]
-class SiginInRoute extends PageRouteInfo<void> {
-  const SiginInRoute({List<PageRouteInfo>? children})
-      : super(
-          SiginInRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SiginInRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
